@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color: white; /* Change body text color to white */
+    font-family: 'Press Start 2P', cursive; /* Use Press Start 2P for all text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Prevents scrollbars */
+    position: relative; /* Positioning for video */
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Use viewport width */
+    height: 100vh; /* Use viewport height */
+    overflow: hidden; /* Hide any overflow */
+    z-index: 0; /* Set z-index below content */
+}
+
+.video-background video {
+    width: 100%; /* Make the video fill the div */
+    height: 100%; /* Make the video fill the height */
+    object-fit: cover; /* Cover the entire area while maintaining aspect ratio */
+}
+
+.container {
+    perspective: 1000px;
+    width: 80%; /* Reduced width for sidebars */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative; /* Positioning for sidebars */
+    z-index: 1; /* Ensure content is above the video */
+}
+
+.main-info {
+    text-align: center;
+    margin-top: 40px; /* Increased margin to lower the main text */
+    font-size: 3em; /* Increased font size for main text */
+    opacity: 0; /* Start as invisible for fade-in */
+    animation: fadeIn 1s forwards;
+    animation-delay: 0.5s; /* Delay for the main text */
+}
+
+.telegram-button {
+    text-align: center;
+    margin-top: 30px; /* Increased margin to lower the telegram text */
+    font-size: 2.5em; /* Increased font size for Telegram button */
+    cursor: pointer;
+    opacity: 0; /* Start as invisible for fade-in */
+    animation: fadeIn 1s forwards, beat 1s infinite; /* Added beat animation */
+    animation-delay: 2s; /* Delay for the Telegram button */
+    padding: 10px 20px; /* Add padding to create a larger clickable area */
+    display: inline-block; /* Make it an inline block to adjust its size according to text */
+}
+
+.counters {
+    display: flex;
+    justify-content: center; /* Center the counters horizontally */
+    width: 100%; /* Ensure the flex container takes the full width */
+    margin-top: 20px;
+}
+
+.counter {
+    background-color: transparent; /* Make the background transparent */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners, if desired */
+    opacity: 0; /* Start as invisible for fade-in */
+    animation: fadeIn 1s forwards;
+    animation-delay: 4s; /* Delay for the counter to appear last */
+}
+
+.counter h2 {
+    text-align: center;
+    opacity: 0; /* Start as invisible for fade-in */
+    animation: fadeIn 1s forwards;
+    animation-delay: 3s; /* Delay for "Sites Defaced" to appear last */
+    font-size: 2em; /* Slightly reduced font size for heading */
+}
+
+.count {
+    font-size: 3em; /* Increased font size for count */
+    display: block;
+    text-align: center;
+}
+
+/* Animation for fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation for beating effect */
+@keyframes beat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1); /* Scale up slightly */
+    }
+}
